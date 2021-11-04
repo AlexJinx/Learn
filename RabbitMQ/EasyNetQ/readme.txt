@@ -1,0 +1,1 @@
+此项目使用 EasyNetQ API，EasyNetQ 是一个容易使用，专门针对RabbitMQ的 .NET API。
