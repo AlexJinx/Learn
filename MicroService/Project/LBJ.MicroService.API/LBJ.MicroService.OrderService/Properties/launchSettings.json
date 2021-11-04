@@ -1,0 +1,24 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:2612",
+      "sslPort": 0
+    }
+  },
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "LBJ.MicroService.OrderService": {
+      "commandName": "Project",
+      "commandLineArgs": "--urls http://*:7010 ip=119.29.9.146 port=7010",
+      "launchBrowser": true,
+      "launchUrl": "api/healthcheck",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": "true",
+      "applicationUrl": "http://localhost:7000"
+    }
+  }
+}
