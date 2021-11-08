@@ -1,0 +1,1 @@
+基于 EasyNetQ 的升级，使用 rabbitmq_delayed_message_exchange 插件，解决上个Demo的死信队列只遵循先进先出原则，不遵循优先过期时间先出队问题
