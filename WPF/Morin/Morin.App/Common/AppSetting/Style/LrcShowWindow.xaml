@@ -1,0 +1,164 @@
+﻿<Window x:Class="Morin.App.Common.AppSetting.Style.LrcShowWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+        xmlns:local="clr-namespace:Morin.App.Common.AppSetting.Style"
+        mc:Ignorable="d"
+        Width="800"
+        Title="LrcShowWindow" WindowStyle="None" ShowInTaskbar="False" Topmost="True" AllowsTransparency="True" 
+        VerticalContentAlignment="Bottom" HorizontalAlignment="Center" UseLayoutRounding="False" d:DesignHeight="47.32" 
+        Height="100" Loaded="Window_Loaded" Background="{x:Null}" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" 
+        Visibility="Hidden" MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseWheel="Window_MouseWheel" MouseEnter="Window_MouseEnter" 
+        MinHeight="100" MouseDoubleClick="Window_MouseDoubleClick">
+
+    <Window.Resources>
+        <Storyboard x:Key="OnMouseEnter1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Close">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.5"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseLeave1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Close">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="显示歌词控件">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ContBG">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="LUck">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="隐藏歌词控件">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ContBG">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="LUck">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="window">
+            <BeginStoryboard x:Name="显示歌词控件_BeginStoryboard" Storyboard="{StaticResource 显示歌词控件}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="window">
+            <BeginStoryboard x:Name="隐藏歌词控件_BeginStoryboard" Storyboard="{StaticResource 隐藏歌词控件}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Grid x:Name="zGrid" HorizontalAlignment="Center">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="61*"/>
+        </Grid.RowDefinitions>
+
+        <Border  x:Name="grid4" Background="#02FFFFFF" CornerRadius="7" Margin="-30,0" MouseLeftButtonUp="grid1_MouseLeftButtonUp" Grid.RowSpan="2"/>
+
+        <Grid x:Name="grid" HorizontalAlignment="Center" Height="60" VerticalAlignment="Center" Grid.Row="3">
+            <Border  x:Name="grid1" Background="#FFFFFFFF" CornerRadius="7" Margin="-60,0" MouseLeftButtonUp="grid1_MouseLeftButtonUp" d:IsHidden="True"/>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock x:Name="lrcShow" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    FontSize="24" Height="auto" Margin="0,0,0,0" Foreground="{DynamicResource ThemeColor}" Text="HOLLE"/>
+                <TextBlock x:Name="lrcShow_next" TextWrapping="Wrap" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="{DynamicResource ThemeColor}" Opacity="0.5" TextDecorations="{x:Null}" Text="MORIN" ClipToBounds="True" FontSize="14"/>
+            </StackPanel>
+
+        </Grid>
+
+        <Grid x:Name="LUck" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Margin="0" Visibility="Hidden">
+            <CheckBox Content="&#xE6C0;" FontSize="24"  
+                    FontFamily="{StaticResource JixIconfont}"
+                    pu:CheckBoxHelper.CheckedBackground="{DynamicResource ThemeColor}" 
+                    pu:CheckBoxHelper.CheckBoxStyle="Button" 
+                    VerticalContentAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Foreground="{DynamicResource Black-02}" Background="White" UseLayoutRounding="True" 
+                    Padding="0,-1,0,0" VerticalAlignment="Center" Width="24" Height="24" Margin="7,3" IsChecked="{Binding IsChecked, ElementName=Lock}" Click="CheckBox_Click"/>
+
+        </Grid>
+
+        <Grid x:Name="ContBG" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Height="30">
+            <Border  x:Name="grid2" Background="#FFFFFFFF" CornerRadius="5" MouseLeftButtonUp="grid1_MouseLeftButtonUp" Margin="0"/>
+            <StackPanel Orientation="Horizontal" Margin="20,0">
+
+                <CheckBox x:Name="Lock" Content="&#xE6C0;" FontSize="22"  
+                          FontFamily="{StaticResource JixIconfont}"
+                          pu:CheckBoxHelper.CheckedBackground="{DynamicResource ThemeColor}" 
+                          pu:CheckBoxHelper.CheckBoxStyle="Button" 
+                          VerticalContentAlignment="Center" 
+                          HorizontalAlignment="Left" 
+                          Foreground="{DynamicResource Black-02}" Background="{x:Null}" UseLayoutRounding="True" 
+                          Padding="-3,-4,0,0" Margin="0,6,8,6" VerticalAlignment="Center" Width="16" Height="16" Click="Lock_Click" ToolTip="锁定歌词控件"/>
+
+                <CheckBox x:Name="bg" Content="&#xE6C1;" FontSize="16"  
+                          FontFamily="{StaticResource JixIconfont}"
+                          pu:CheckBoxHelper.CheckedBackground="{DynamicResource ThemeColor}" 
+                          pu:CheckBoxHelper.CheckBoxStyle="Button" 
+                          VerticalContentAlignment="Center" 
+                          HorizontalAlignment="Left" 
+                          Foreground="{DynamicResource Black-02}" Background="{x:Null}" UseLayoutRounding="True" 
+                          Padding="0" Margin="0,6,8,6" VerticalAlignment="Center" Width="16" Height="16" Click="CheckBox_Click_1" ToolTip="显示/隐藏歌词背景"/>
+
+                <Button x:Name="B_Copy2" 
+                    pu:ButtonHelper.CornerRadius="1"
+                    pu:ButtonHelper.ButtonStyle="Link"
+                    pu:ButtonHelper.HoverBrush="{DynamicResource ThemeColor}"
+                    FontFamily="{StaticResource JixIconfont}"
+                    pu:ButtonHelper.ClickStyle="Sink"
+                    Content="&#xEC80;"
+                    Grid.IsSharedSizeScope="True" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" BorderBrush="{x:Null}" 
+                    Background="Transparent" UseLayoutRounding="False" Foreground="{DynamicResource Black-01}" Click="B_Copy2_Click" />
+                <Button x:Name="Play_B" 
+                    pu:ButtonHelper.CornerRadius="1"
+                    pu:ButtonHelper.ButtonStyle="Link"
+                    pu:ButtonHelper.HoverBrush="{DynamicResource ThemeColor}"
+                    FontFamily="{StaticResource JixIconfont}"
+                    pu:ButtonHelper.ClickStyle="Sink"
+                    Background="Transparent"
+                    Content="&#xE68D;"
+                    VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="20" Foreground="{DynamicResource ThemeColor}" BorderBrush="{x:Null}" UseLayoutRounding="False" Click="Play_B_Click" />
+                <Button x:Name="B_Copy7" 
+                    pu:ButtonHelper.CornerRadius="1"
+                    pu:ButtonHelper.ButtonStyle="Link"
+                    pu:ButtonHelper.HoverBrush="{DynamicResource ThemeColor}"
+                    pu:ButtonHelper.ClickStyle="Sink"
+                    FontFamily="{StaticResource JixIconfont}"
+                    Content="&#xE687;"
+                    Grid.IsSharedSizeScope="True" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" BorderBrush="{x:Null}" Background="Transparent" 
+                    UseLayoutRounding="False" Foreground="{DynamicResource Black-01}" Click="B_Copy7_Click" />
+                <Button x:Name="Close" 
+                    pu:ButtonHelper.CornerRadius="15"
+                    pu:ButtonHelper.ButtonStyle="Link"
+                    pu:ButtonHelper.HoverBrush="{DynamicResource ThemeColor}"
+                    pu:ButtonHelper.ClickStyle="Sink"
+                    FontFamily="{StaticResource JixIconfont}"
+                    Content="&#xE7FC;"
+                    VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"
+                    Foreground="{DynamicResource Black-02}" Background="{x:Null}" BorderBrush="#FFE6E6E6" Margin="10,0,0,0" Click="Close_Click" ToolTip="关闭歌词控件"  />
+
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+
+</Window>

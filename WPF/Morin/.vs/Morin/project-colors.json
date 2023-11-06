@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "20a2fc23-a66b-4f9b-967a-6349a182053d": {
+      "ProjectGuid": "20a2fc23-a66b-4f9b-967a-6349a182053d",
+      "DisplayName": "Morin.App",
+      "ColorIndex": 0
+<<<<<<< HEAD
+=======
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "杂项文件",
+      "ColorIndex": -1
+>>>>>>> bc8fab203afe35b34ef6038e5f17a8751cf4e46a
+    }
+  },
+  "NextColorIndex": 1
+}

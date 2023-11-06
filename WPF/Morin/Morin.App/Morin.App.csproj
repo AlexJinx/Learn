@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{20A2FC23-A66B-4F9B-967A-6349A182053D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Morin.App</RootNamespace>
+    <AssemblyName>Morin.App</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+<<<<<<< HEAD
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+=======
+    <Reference Include="ESBasic">
+      <HintPath>..\dll\ESBasic.dll</HintPath>
+    </Reference>
+    <Reference Include="HandyControl, Version=3.2.0.0, Culture=neutral, PublicKeyToken=45be8712787a1e5b, processorArchitecture=MSIL">
+      <HintPath>..\packages\HandyControl.3.2.0\lib\net472\HandyControl.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.6.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Core.1.1.1\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Shell.1.1.1\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.1.9.0\lib\net35\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Oraycn.MCapture">
+      <HintPath>..\dll\Oraycn.MCapture.dll</HintPath>
+    </Reference>
+    <Reference Include="Oraycn.MFile">
+      <HintPath>..\dll\Oraycn.MFile.dll</HintPath>
+    </Reference>
+    <Reference Include="Panuon.UI.Silver, Version=1.0.9.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Panuon.UI.Silver.1.0.9.4\lib\net45\Panuon.UI.Silver.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero2, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\PresentationFramework.Aero2.1.0.1\lib\PresentationFramework.Aero2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+>>>>>>> bc8fab203afe35b34ef6038e5f17a8751cf4e46a
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+<<<<<<< HEAD
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+=======
+    <Reference Include="taglib-sharp">
+      <HintPath>..\dll\taglib-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFSoundVisualizationLib">
+      <HintPath>..\dll\WPFSoundVisualizationLib.dll</HintPath>
+    </Reference>
+>>>>>>> bc8fab203afe35b34ef6038e5f17a8751cf4e46a
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+<<<<<<< HEAD
+=======
+    <Compile Include="Common\Code\HotKey.cs" />
+    <Compile Include="Common\Code\JsonRWInfo.cs" />
+    <Compile Include="Common\Code\Message.cs" />
+    <Compile Include="Common\Code\MusicCardJson.cs" />
+    <Compile Include="Common\Code\MVGet.cs" />
+    <Compile Include="Common\Code\Network.cs" />
+    <Compile Include="Common\Code\TimerKeyer.cs" />
+    <Compile Include="Common\Code\TransformType.cs" />
+    <Compile Include="Common\Log\Logger.cs" />
+    <Compile Include="Common\OtherAPI\FmAPI.cs" />
+    <Compile Include="Common\OtherAPI\FmGet.cs" />
+    <Compile Include="Common\OtherAPI\KGMusicAPI.cs" />
+    <Compile Include="Common\OtherAPI\KWMusicAPI.cs" />
+    <Compile Include="Common\OtherAPI\NTMusicAPI.cs" />
+    <Compile Include="Common\OtherAPI\QQMusicAPI.cs" />
+    <Compile Include="Common\OtherAPI\RingMusicAPI.cs" />
+    <Compile Include="Common\Page\SearchResultPage.xaml.cs">
+      <DependentUpon>SearchResultPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Page\ShowMessageBox.xaml.cs">
+      <DependentUpon>ShowMessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Page\ShowWriteMessage.xaml.cs">
+      <DependentUpon>ShowWriteMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Page\ShowWriteMessageRl.xaml.cs">
+      <DependentUpon>ShowWriteMessageRl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Page\SongListResultPage.xaml.cs">
+      <DependentUpon>SongListResultPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Page\SoundHound.xaml.cs">
+      <DependentUpon>SoundHound.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Page\Update.xaml.cs">
+      <DependentUpon>Update.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DB\BaseInfoData.cs" />
+    <Compile Include="DB\Update.cs" />
+    <Compile Include="DB\UserStatistics.cs" />
+    <Compile Include="Model\FmDetailInfo.cs" />
+    <Compile Include="Model\FMListInfo.cs" />
+    <Compile Include="Model\LrcInfo.cs" />
+    <Compile Include="Model\Message.cs" />
+    <Compile Include="Model\MusicCardInfo.cs" />
+    <Compile Include="Model\MusicInfo.cs" />
+    <Compile Include="Model\SingerInfo.cs" />
+    <Compile Include="Model\SpeakerDetailInfo.cs" />
+    <Compile Include="Model\UpdateInfo.cs" />
+    <Compile Include="ViewModel\MyCountextMenu.cs" />
+    <Compile Include="ViewModel\MyMusicCard.cs" />
+    <Page Include="Common\AppSetting\Style\ComboBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\AppSetting\Style\en-US.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\AppSetting\Style\ListBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\AppSetting\Style\ListViewStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\AppSetting\Style\LrcShowWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\AppSetting\Style\LrcView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\AppSetting\Style\TabStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\AppSetting\Style\UserStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\AppSetting\Style\VcreditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\AppSetting\Theme\Black.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\AppSetting\Theme\White.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\Page\SearchResultPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\Page\ShowMessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\Page\ShowWriteMessage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\Page\ShowWriteMessageRl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\Page\SongListResultPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\Page\SoundHound.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\Page\Update.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+>>>>>>> bc8fab203afe35b34ef6038e5f17a8751cf4e46a
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+<<<<<<< HEAD
+=======
+    <Compile Include="Common\AppSetting\Style\ListViewStyle.cs" />
+    <Compile Include="Common\AppSetting\Style\LrcShowWindow.xaml.cs">
+      <DependentUpon>LrcShowWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\AppSetting\Style\LrcView.xaml.cs">
+      <DependentUpon>LrcView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\AppSetting\Style\VcreditWindowBehindCode.cs" />
+    <Compile Include="Common\Code\IniHelper.cs" />
+    <Compile Include="Common\Wave\NAudioEngine.cs" />
+    <Compile Include="Common\Wave\SampleAggregator.cs" />
+>>>>>>> bc8fab203afe35b34ef6038e5f17a8751cf4e46a
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+<<<<<<< HEAD
+=======
+    <None Include="packages.config" />
+>>>>>>> bc8fab203afe35b34ef6038e5f17a8751cf4e46a
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+<<<<<<< HEAD
+=======
+    <Resource Include="Resource\Font\iconfont.ttf" />
+>>>>>>> bc8fab203afe35b34ef6038e5f17a8751cf4e46a
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+<<<<<<< HEAD
+=======
+  <ItemGroup>
+    <Folder Include="View\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\head.jpg" />
+    <Resource Include="Resource\Image\logo白色 128%281%29.ico" />
+    <Resource Include="Resource\Image\logo白色 32.ico" />
+    <Resource Include="Resource\Image\MORIN.jpg" />
+    <Resource Include="Resource\Image\MorinBar.png" />
+    <Resource Include="Resource\Image\new Logo-alpha-2.png" />
+    <Resource Include="Resource\Image\new Logo-alpha-3.png" />
+    <Resource Include="Resource\Image\new Logo-alpha-black.png" />
+    <Resource Include="Resource\Image\new Logo-alpha.png" />
+    <Resource Include="Resource\Image\new Logo-white x500.png" />
+    <Resource Include="Resource\Image\wecat.png" />
+    <Resource Include="Resource\Image\上一曲.png" />
+    <Resource Include="Resource\Image\上一曲2.png" />
+    <Resource Include="Resource\Image\下一曲.png" />
+    <Resource Include="Resource\Image\下一曲2.png" />
+    <Resource Include="Resource\Image\启动页.png" />
+    <Resource Include="Resource\Image\头像.png" />
+    <Resource Include="Resource\Image\微信赞助.jpg" />
+    <Resource Include="Resource\Image\播放.png" />
+    <Resource Include="Resource\Image\播放2.png" />
+    <Resource Include="Resource\Image\支付宝赞助.jpg" />
+    <Resource Include="Resource\Image\新LOGO设计-圆角.png" />
+    <Resource Include="Resource\Image\方形-魔音logo-白色.png" />
+    <Resource Include="Resource\Image\暂停.png" />
+    <Resource Include="Resource\Image\暂停2.png" />
+    <Resource Include="Resource\Image\横板LOGO彩色.png" />
+    <Resource Include="Resource\Image\横板LOGO黑色.png" />
+    <Resource Include="Resource\Image\背景.jpg" />
+    <Resource Include="Resource\Image\音波.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+>>>>>>> bc8fab203afe35b34ef6038e5f17a8751cf4e46a
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

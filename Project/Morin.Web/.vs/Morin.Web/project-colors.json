@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "4e492d44-4b68-4e18-929b-e6b213893360": {
+      "ProjectGuid": "4e492d44-4b68-4e18-929b-e6b213893360",
+      "DisplayName": "Morin.API",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "杂项文件",
+      "ColorIndex": -1
+    },
+    "c32a8082-6db7-48dd-9418-2b85112a504e": {
+      "ProjectGuid": "c32a8082-6db7-48dd-9418-2b85112a504e",
+      "DisplayName": "Morin.API.Data",
+      "ColorIndex": 1
+    },
+    "f26faa25-013d-4f36-ba03-a357b23b1802": {
+      "ProjectGuid": "f26faa25-013d-4f36-ba03-a357b23b1802",
+      "DisplayName": "Morin.API.Entity",
+      "ColorIndex": 2
+    },
+    "492c523e-77b7-4b8a-a0c1-cf70321553d3": {
+      "ProjectGuid": "492c523e-77b7-4b8a-a0c1-cf70321553d3",
+      "DisplayName": "Morin.API.Business",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

@@ -1,0 +1,124 @@
+﻿<Window x:Class="Morin.App.Common.Page.SongListResultPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+        xmlns:local="clr-namespace:Morin.App.Common.Page"
+        mc:Ignorable="d"
+        d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+
+    <Grid x:Name="SongListGrid" Margin="0,0,0,0.2" Background="{DynamicResource AllBackground}">
+        <Grid Height="100" VerticalAlignment="Top">
+            <Border Name="card1" Width="80" CornerRadius="5" Background="{DynamicResource AllBackground}" HorizontalAlignment="Left" VerticalAlignment="Center" Height="80" Margin="15,0,0,0"/>
+            <Image x:Name="PLImg" HorizontalAlignment="Left" Height="80"  VerticalAlignment="Center" Width="80" Margin="15,0,0,0"  RenderOptions.BitmapScalingMode="HighQuality" Source="/魔音Morin;component/Resources/Images/MORIN.jpg" >
+                <Image.OpacityMask>
+                    <VisualBrush Visual="{Binding ElementName=card1, Mode=OneWay}" />
+                </Image.OpacityMask>
+            </Image>
+            <TextBlock x:Name="PLName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="歌单名字..." VerticalAlignment="Top" Margin="115,10,0,0" FontSize="16" Foreground="{DynamicResource ButtonNormal}" FontFamily="Microsoft YaHei" FontWeight="Bold"/>
+            <TextBlock x:Name="PLInt" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="歌单简介...." 
+                       TextTrimming="CharacterEllipsis" MaxHeight="40" Opacity="0.8" ToolTip="{Binding ElementName=PLInt,Path=Text}"
+                       VerticalAlignment="Top" Margin="115,38,15,0" Foreground="{DynamicResource ButtonNormal}" FontFamily="Microsoft YaHei" FontSize="11"/>
+            <StackPanel Margin="105,63,0,12" Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button x:Name="play_btn" ToolTip="全部播放" Content="&#xE848; 全部播放" 
+                    HorizontalAlignment="Right" Padding="25,1" 
+                    pu:ButtonHelper.ButtonStyle="Standard"  
+                    FontFamily="{DynamicResource JixIconfont}" 
+                    pu:ButtonHelper.CornerRadius="12" 
+                    Background="{DynamicResource ThemeColor}" 
+                    Foreground="{DynamicResource White-01}" Height="24" 
+                    VerticalAlignment="Center" Margin="10,0,0,0" FontSize="12" 
+                    BorderBrush="{x:Null}" Click="Button_Click"/>
+                <Button x:Name="button3" Content="返回" HorizontalAlignment="Right" Padding="25,0,25,0"  
+                    pu:ButtonHelper.ButtonStyle="Outline"   pu:ButtonHelper.CornerRadius="12" 
+                    Background="{DynamicResource AllBackground}" Foreground="{DynamicResource ButtonNormal}" Height="24" VerticalAlignment="Center" 
+                    Margin="10,0,0,0" FontSize="12" BorderBrush="{DynamicResource AllBackground2}" Click="button3_Click" FontFamily="Microsoft YaHei"/>
+                <Button x:Name="button1" Content="分享" ToolTip="歌单分享" HorizontalAlignment="Right" Padding="25,0,25,0"  
+                        pu:ButtonHelper.ButtonStyle="Outline" FontFamily="{DynamicResource JixIconfont}"   pu:ButtonHelper.CornerRadius="12" 
+                        Background="{DynamicResource AllBackground}" Foreground="{DynamicResource ButtonNormal}" Height="24" VerticalAlignment="Center" 
+                        Margin="10,0,0,0" FontSize="12" BorderBrush="{DynamicResource AllBackground2}" Click="Button1_Click" Visibility="{Binding Visibility, ElementName=Favorites_btn}"/>
+                <Button x:Name="Favorites_btn" Content="收藏歌单" HorizontalAlignment="Right" Padding="25,0,25,0"  
+                        pu:ButtonHelper.ButtonStyle="Outline"   pu:ButtonHelper.CornerRadius="12" 
+                        Background="{DynamicResource AllBackground}" Foreground="{DynamicResource ButtonNormal}" Height="24" VerticalAlignment="Center" 
+                        Margin="10,0,0,0" FontSize="12" BorderBrush="{DynamicResource AllBackground2}" Click="button2_Click" FontFamily="Microsoft YaHei"/>
+            </StackPanel>
+            <Border x:Name="FJX" BorderBrush="#A90F0F0F" BorderThickness="0,0,0,5" Margin="0" Height="0.8" VerticalAlignment="Bottom" Opacity="0.2" Visibility="Hidden"/>
+        </Grid>
+        <Grid Margin="0,100,0,0">
+            <Grid Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="250"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" x:Name="column6"/>
+                <Grid Grid.Column="1" x:Name="column7"/>
+                <Grid Grid.Column="2" x:Name="column8"/>
+                <Grid Grid.Column="3" x:Name="column9"/>
+            </Grid>
+            <ListView x:Name="SongList"  Margin="0,6,0,0"  BorderBrush="{x:Null}" Background="{x:Null}" 
+                      Foreground="{DynamicResource ButtonNormal}"  Style="{DynamicResource ListViewStyle2}"
+                      Grid.ColumnSpan="2" MouseDoubleClick="SearchList_MouseDoubleClick" FontFamily="Microsoft YaHei" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" PreviewKeyDown="SearchList_PreviewKeyDown" FontSize="11" PreviewMouseRightButtonDown="SongList_PreviewMouseRightButtonDown">
+                <ListView.View>
+                    <GridView x:Name="GV1">
+                        <GridViewColumn Header="" Width="45">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding ID}" Width="30" TextAlignment="Center" Foreground="{DynamicResource ButtonNormal}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="歌曲" Width="{Binding ActualWidth, ElementName=column6}">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="1">
+                                        <TextBlock Text="{Binding Song}" ToolTip="{Binding Song}" Foreground="{DynamicResource ButtonNormal}"/>
+                                        <TextBlock Text="  &#xE6CE;" FontFamily="{DynamicResource JixIconfont}" Foreground="{DynamicResource Red-02}" ToolTip="VIP版权歌曲" Visibility="{Binding VipVisi}" Margin="0,1.1,0,0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="" Width="130" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="1">
+                                        <Button x:Name="SearchMV_Button" Margin="0,0,4,0" Content="&#xE6F2;"  pu:ButtonHelper.CornerRadius="12" FontSize="17" ToolTip="播放MV" Visibility="{Binding MVShow}" pu:ButtonHelper.ButtonStyle="Link" FontFamily="{DynamicResource JixIconfont}" Grid.IsSharedSizeScope="True" UseLayoutRounding="True" Foreground="{DynamicResource ThemeColor}" Click="SearchMV_Button_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                                        <Button Margin="4,0,3,0" Content="&#xE9F6;" pu:ButtonHelper.CornerRadius="12" FontSize="13" ToolTip="无损音乐" Visibility="{Binding Lossless}" pu:ButtonHelper.ButtonStyle="Link" FontFamily="{DynamicResource JixIconfont}" Grid.IsSharedSizeScope="True" UseLayoutRounding="True" Foreground="{DynamicResource ThemeColor}" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                                        <Button Margin="0,0,0,0" Content="{Binding Heart}" pu:ButtonHelper.CornerRadius="12" FontSize="18" ToolTip="喜欢这首歌" pu:ButtonHelper.ButtonStyle="Link" FontFamily="{DynamicResource JixIconfont}" Click="SearchLike_Click" Foreground="{DynamicResource ThemeColor}" Background="{x:Null}" BorderBrush="{x:Null}"/>
+
+                                        <Button x:Name="Down_Button" Margin="0,0,4,0" Content="&#xE676;" pu:ButtonHelper.CornerRadius="12" Opacity="0.8" FontSize="22" ToolTip="下载到本地" pu:ButtonHelper.ButtonStyle="Link" FontFamily="{DynamicResource JixIconfont}" Click="SearchDown_Button_Click" Focusable="False" IsTabStop="False" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource ButtonNormal}" />
+                                        <Button Margin="0,0,4,0" Content="&#xE7F5;" pu:ButtonHelper.CornerRadius="12" FontSize="16" ToolTip="添加到播放列表" pu:ButtonHelper.ButtonStyle="Link" FontFamily="{DynamicResource JixIconfont}" Click="AddList_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource ButtonNormal}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="歌手" Width="{Binding ActualWidth, ElementName=column7}">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="1">
+                                        <Button Content="{Binding Singer}" IsHitTestVisible="True" pu:ButtonHelper.ButtonStyle="Link" FontSize="{Binding FontSize, ElementName=HotList}" pu:ButtonHelper.HoverBrush="{DynamicResource ThemeColor}" Foreground="{DynamicResource ButtonNormal}" ToolTip="{Binding Singer}" Click="SingerButton_Click" BorderBrush="{x:Null}" Background="{x:Null}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="专辑" Width="{Binding ActualWidth, ElementName=column8}">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="1">
+                                        <TextBlock Text="{Binding Album}" ToolTip="{Binding Album}" Foreground="{DynamicResource ButtonNormal}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="时长" Width="{Binding ActualWidth, ElementName=column9}" 
+                                        DisplayMemberBinding="{Binding Duration}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Grid>
+
+</Window>
